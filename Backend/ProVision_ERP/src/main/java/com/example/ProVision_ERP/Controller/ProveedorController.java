@@ -16,8 +16,11 @@ import com.example.ProVision_ERP.Dto.ProviderDTO;
 import com.example.ProVision_ERP.Model.Proveedores;
 import com.example.ProVision_ERP.Services.ProveedorService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RequestMapping("/provider")
 @RestController
+@SecurityRequirement(name = "bearer-key")
 public class ProveedorController {
 
     @Autowired

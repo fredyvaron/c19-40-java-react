@@ -60,7 +60,7 @@ public class ClientController {
             return ResponseEntity.ok().body(client);  
         } catch (ClientNotFoundException e) {
             // TODO: handle exception
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
 
     }

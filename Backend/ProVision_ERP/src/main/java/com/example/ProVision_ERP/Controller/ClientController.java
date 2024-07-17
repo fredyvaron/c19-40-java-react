@@ -19,8 +19,11 @@ import com.example.ProVision_ERP.Excepction.ClientNotFoundException;
 import com.example.ProVision_ERP.Model.Client;
 import com.example.ProVision_ERP.Services.ClientService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RequestMapping("/cliente")
 @RestController
+@SecurityRequirement(name = "bearer-key")
 public class ClientController {
 
     @Autowired

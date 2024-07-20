@@ -15,6 +15,8 @@ import com.example.ProVision_ERP.Dto.RegisterRequest;
 import com.example.ProVision_ERP.Model.User;
 import com.example.ProVision_ERP.Services.AuthService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -25,12 +27,14 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @GetMapping("/welcome") 
+    @GetMapping("/welcome")
+    @Operation(security = { })
     public String welcome() { 
         return "Welcome this endpoint is not secure"; 
     } 
 
     @PostMapping("/register")
+    @Operation(security = { })
     public ResponseEntity<User> register (@RequestBody RegisterRequest registerRequest) {
         User registeredUser = authService.Signup(registerRequest);
 
@@ -39,6 +43,7 @@ public class AuthController {
     
 
     @PostMapping("/login")
+    @Operation(security = { })
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
 
         System.out.println("ingreso al login");
